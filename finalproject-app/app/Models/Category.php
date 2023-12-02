@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     use HasFactory;
+
+    // fillable array allows for the name to be held by the model class when a value is submitted.
+    protected $fillable = ["name"];
 }
