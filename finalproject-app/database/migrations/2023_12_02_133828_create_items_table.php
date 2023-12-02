@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string("description");
             $table->decimal("price");
             $table->bigInteger("quantity");
-            $table->string("SKU");
+            $table->string("SKU")->unique();
             $table->binary("picture");
         });
     }
