@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void {
         Schema::create('items', function (Blueprint $table) {
-            $table->id()->primary();
-            $table->foreignIdFor(Category::class);
+            $table->id();
+            $table->foreignId("category_id");
             $table->string("title")->unique();
             $table->string("description");
             $table->decimal("price");
             $table->bigInteger("quantity");
+            // After researching, I have determined that SKU should most likely be unique
             $table->string("SKU")->unique();
             $table->binary("picture");
         });
