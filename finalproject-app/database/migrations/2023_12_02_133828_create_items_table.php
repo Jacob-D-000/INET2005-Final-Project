@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->foreignIdFor(Category::class);
+            $table->string("title");
+            $table->string("description");
+            $table->decimal("price");
+            $table->bigInteger("quantity");
+            $table->string("SKU");
+            $table->binary("picture");
         });
     }
 
