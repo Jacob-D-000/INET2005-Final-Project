@@ -21,7 +21,9 @@ class Item extends Model
         // This not the actual image but the filepath
         "picture"
     ];
-
+    
+    public $timestamps = false;
+    
     // This function is used to determine that the relationship between items and categories is that items belongs to catagories since it has a foreign key.
     public function category()
     {

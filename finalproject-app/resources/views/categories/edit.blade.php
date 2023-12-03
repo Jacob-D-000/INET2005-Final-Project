@@ -12,11 +12,16 @@
 <head>
 	<title>Update a Category</title>
 </head>
-<header>
-    <h1>Update a Category</h1>
-</header>
 <body>
-    <form action="{{route('categories.update')}}" method="post">
+    @if(session("error"))
+    <div>
+        {{ session("error") }}
+    </div>
+	@endif
+    <header>
+        <h1>Update a Category</h1>
+    </header>	
+    <form action="{{route('categories.update', $category->id )}}" method="post">
         @csrf
         @method("PATCH")
         {{-- This will display the id of the category --}}

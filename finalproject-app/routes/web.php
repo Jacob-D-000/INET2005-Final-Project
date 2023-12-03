@@ -50,6 +50,6 @@ Route::post("/items", [ItemController::class, "store"])->name("items.store");
 Route::get("/items/{id}/edit", [ItemController::class, "edit"])->name("items.edit");
 
 // Route to the update script for items
-Route::patch("/items/{id}", [ItemController::class, "update"])->name("items.update");
+Route::patch('/items/{id}', [ItemController::class, 'update'])->name('items.update');
 
 Route::delete('/items/{id}', [ItemController::class, "destroy"])->name("items.destroy");

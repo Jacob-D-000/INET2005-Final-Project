@@ -11,6 +11,7 @@ class Category extends Model
 
     // fillable array allows for the name to be held by the model class when a value is submitted.
     protected $fillable = ["name"];
+    public $timestamps = false;
     
     public function items()
     {

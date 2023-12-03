@@ -12,10 +12,15 @@
 <head>
 	<title>Create a Category</title>
 </head>
-<header>
-    <h1>Create a Category</h1>
-</header>
 <body>
+    @if(session("error"))
+    <div>
+        {{ session("error") }}
+    </div>
+	@endif
+    <header>
+        <h1>Create a Category</h1>
+    </header>
     <form action="{{ route('categories.store') }}" method="post">
         @csrf
         <label for="name">Category Name: </label>

@@ -12,19 +12,26 @@
 <head>
 	<title>Create a Item</title>
 </head>
-<header>
-    <h1>Create a Item</h1>
-</header>
+
 <body>
+    <header>
+        <h1>Create a Item</h1>
+    </header>
     <form action="{{ route('items.store') }}" method="post" enctype="multipart/form-data"> 
         @csrf
-        <label for="categoryName">Category: </label>
-        <select name="categoryName" id="categoryName">
+        <label for="category_id">Category: </label>
+        <select name="category_id" id="category_id">
+                <option value=" "></option>
             @foreach ($categories as $category)
-            <option value="{{ $category->name }}">{{ $category->name }}</option>
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
             @endforeach
-        </select>
-        @error ("categoryName")
+        </select>        
+        @if(session("error_category"))
+        <div>
+            {{ session("error_category") }}
+        </div>
+        @endif	
+        @error ("category_id")
         <p>{{ $message }}</p>
         @enderror
         <br>

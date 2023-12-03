@@ -12,10 +12,16 @@
 <head>
 	<title>Category</title>
 </head>
-<header>
-    <h1>Category</h1>
-</header>
+
 <body>
+    @if(session("error"))
+    <div>
+        {{ session("error") }}
+    </div>
+	@endif	
+    <header>
+        <h1>Category</h1>
+    </header>
     <table>
         <tr>
 			<td>Category Name</td>

@@ -12,24 +12,32 @@
 <head>
 	<title>Edit and Item</title>
 </head>
-<header>
-    <h1>Edit and Item</h1>
-</header>
+
 <body>
-    <form action="{{ route('items.update', $item->id) }}" method="post" enctype="multipart/form-data"> 
+    <header>
+        <h1>Edit and Item</h1>
+    </header>
+    <form action="{{ route('items.update', $item->id) }}" enctype="multipart/form-data" method="post" > 
         @csrf
-        <label for="categoryName">Category: </label>
-        <select name="categoryName" id="categoryName" >
+        @method("PATCH")
+        <label for="category_id">Category: </label>
+        <select name="category_id" id="category_id">
+                <option value=" "></option>
             @foreach ($categories as $category)
-            <option value="{{ $category->name }}">{{ $category->name }}</option>
+                <option value="{{ $category->id }}">{{ $category->name }}</option>
             @endforeach
-        </select>
-        @error ("categoryName")
+        </select>        
+        @error ("category_id")
         <p>{{ $message }}</p>
         @enderror
         <br>
         <label for="title">Item Title: </label>
         <input type="text" name="title" value= "{{ $item->title }}" id="title" required>
+        @if(session("error_title"))
+        <div>
+            {{ session("error_title") }}
+        </div>
+        @endif	
         @error ("title")
         <p>{{ $message }}</p>
         @enderror
@@ -54,13 +62,23 @@
         <br>
         <label for="SKU">Item SKU: </label>
         <input type="text" name="SKU" value="{{ $item->SKU }}" id="SKU" required>
+        @if(session("error_SKU"))
+        <div>
+            {{ session("error_SKU") }}
+        </div>
+        @endif	
         @error ("SKU")
         <p>{{ $message }}</p>
         @enderror
         <br>
         <label for="picture">Item Image: </label>
         <input type="file" name="picture" id="picture" required>
-        @error ("file")
+        @if(session("error_image"))
+        <div>
+            {{ session("error_image") }}
+        </div>
+        @endif	
+        @error ("picture")
         <p>{{ $message }}</p>
         @enderror
         <br>
