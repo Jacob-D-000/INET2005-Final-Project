@@ -18,7 +18,7 @@
 <body>
     <form action="{{route('categories.update')}}" method="post">
         @csrf
-        @method('PATCH')
+        @method("PATCH")
         {{-- This will display the id of the category --}}
         <label for="name">Category Name(ID: {{ $category->id }}): </label>
 

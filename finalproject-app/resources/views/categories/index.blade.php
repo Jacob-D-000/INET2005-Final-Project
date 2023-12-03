@@ -17,6 +17,9 @@
 </header>
 <body>
     <table>
+        <tr>
+			<td>Category Name</td>
+		</tr>
         @foreach ($categories as $category)
         <tr>
             <td>{{ $category->name }} </td>
