@@ -11,4 +11,9 @@ class Category extends Model
 
     // fillable array allows for the name to be held by the model class when a value is submitted.
     protected $fillable = ["name"];
+    
+    public function items()
+    {
+        return $this->hasMany(Item::class);
+    }
 }

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->bigInteger("quantity");
             // After researching, I have determined that SKU should most likely be unique
             $table->string("SKU")->unique();
-            $table->binary("picture");
+            $table->string("picture");
         });
     }
 
