@@ -16,7 +16,8 @@
     <h1>Category</h1>
 </header>
 <body>
-    @foreach ($categories as $category)
+    <table>
+        @foreach ($categories as $category)
         <tr>
             <td>{{ $category->name }} </td>
 
@@ -24,6 +25,7 @@
             <td><a href="{{ route('categories.edit', $category->id) }}">Edit</a></td>
         </tr>
     @endforeach
+    </table>
     <p><a href="{{ route('categories.create') }}">Add a new Catergory</a></p>
 </body>
 </html>
