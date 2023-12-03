@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// category
+// category routes
 // Serve the index page for categories
 Route::get("/categories", [CategoryController::class, "index"])->name("categories.index");
 
@@ -35,8 +35,21 @@ Route::get("/categories/{id}/edit", [CategoryController::class, "edit"])->name("
 // Route to the update script for categories
 Route::patch("/categories/{id}", [CategoryController::class, "update"])->name("categories.update");
 
+
+// items routes
+// Serve the index page for items
+Route::get("/items", [ItemController::class, "index"])->name("items.index");
+
 // Serve the create form page for items
 Route::get("/items/create", [ItemController::class, "create"])->name("items.create");
 
 // Route to the store script for items
 Route::post("/items", [ItemController::class, "store"])->name("items.store");
+
+// Serve the edit page for items
+Route::get("/items/{id}/edit", [ItemController::class, "edit"])->name("items.edit");
+
+// Route to the update script for items
+Route::patch("/items/{id}", [ItemController::class, "update"])->name("items.update");
+
+Route::delete('/items/{id}', [ItemController::class, "destroy"])->name("items.destroy");
