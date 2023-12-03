@@ -46,7 +46,8 @@ class ItemController extends Controller
 
         if ($request->hasFile("picture")) {
             $picture = $request->file("picture");
-            $picturePath = $picture->store('images', 'public');
+            $pictureName = $picture->getClientOriginalName();
+            $picturePath = $picture->store("public/picture");
         }
 
         Item::create([
@@ -95,7 +96,7 @@ class ItemController extends Controller
 
         if ($request->hasFile("picture")) {
             $picture = $request->file("picture");
-            $picturePath = $picture->store('images', 'public');
+            $picturePath = $picture->store("public/picture");
         }
 
         if (Item::where("picture", $picturePath)->where("id", "!=", $id)->first()) {

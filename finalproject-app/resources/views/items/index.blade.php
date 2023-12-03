@@ -11,10 +11,15 @@
 	
 <head>
 	<title>Item</title>
+	<style>
+		table, th, td {
+  			border: 1px solid;
+		}
+	</style>
 </head>
 
 <body>
-		<header>
+	<header>
 		<h1>Item</h1>
 	</header>
 	<table>
@@ -37,7 +42,8 @@
 			<td>${{ $item->price }}</td>
 			<td>{{ $item->quantity }}</td>
 			<td>{{ $item->SKU }}</td>
-			<td><img src="{{ $item->picture }}" alt="Image of  {{ $item->title }}" style="width: 400px"></td>
+			<td><img src="{{ asset('storage/' . str_replace('public/', '', $item->picture)) }}" alt="Image of {{ $item->title }}" style="width: 400px">
+			</td>
 			<td><a href="{{ route('items.edit', $item->id) }}">Edit</a></td>
 			<td>
 				<form action="{{ route('items.destroy', $item->id) }}" method="post" id="deleteForm{{ $item->id }}">
