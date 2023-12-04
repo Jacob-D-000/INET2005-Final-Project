@@ -46,10 +46,11 @@ Route::get("/items/create", [ItemController::class, "create"])->name("items.crea
 // Route to the store script for items
 Route::post("/items", [ItemController::class, "store"])->name("items.store");
 
-// Serve the edit page for items
+// Serve the edit page for an items
 Route::get("/items/{id}/edit", [ItemController::class, "edit"])->name("items.edit");
 
-// Route to the update script for items
+// Route to the update script for and item
 Route::patch('/items/{id}', [ItemController::class, 'update'])->name('items.update');
 
+// Route to delete script for an item
 Route::delete('/items/{id}', [ItemController::class, "destroy"])->name("items.destroy");
